@@ -1,10 +1,5 @@
 # Server-Client Simulations
 
-## FEMNIST Classifier Instructions
-- Ensure that the ```data/femnist/data/train``` and ```data/femnist/data/test``` directories contain data
-- Run ```python3 main.py -dataset femnist -model cnn```
-- For more simulation options and details, see 'Additional Notes' section
-
 ## Sentiment140 Classifier Instructions
 - Ensure that the ```data/sent140/data/train``` and ```data/sent140/data/test``` directories contain data
 - If you already have a .txt file containing word embeddings (i.e. 'glove.6B.300d.txt') in the sent140 directory, run ```sent140/get_embs.py -f fp```, where fp is the file path to the .txt file, to generate a .json file for the classifier to load. Otherwise, run ```./sent140/get_embs.sh```, which downloads the embeddings and creates the .json file.
