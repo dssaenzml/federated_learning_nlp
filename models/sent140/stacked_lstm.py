@@ -29,8 +29,8 @@ class ClientModel(Model):
         x = tf.cast(tf.nn.embedding_lookup(embedding, features), tf.float32)
         labels = tf.compat.v1.placeholder(tf.float32, [None, self.num_classes])
         
-        stacked_lstm = tf.keras.layers.StackedRNNCells(
-            [tf.keras.layers.LSTMCell(self.n_hidden) for _ in range(2)])
+        stacked_lstm = tf.compat.v1.nn.rnn_cell.MultiRNNCell(
+            [tf.compat.v1.nn.rnn_cell.LSTMCell(self.n_hidden) for _ in range(2)])
         outputs, _ = tf.compat.v1.nn.dynamic_rnn(stacked_lstm, x, dtype=tf.float32)
         fc1 = tf.compat.v1.layers.dense(inputs=outputs[:, -1, :], units=128)
         pred = tf.compat.v1.layers.dense(inputs=fc1, units=self.num_classes)
